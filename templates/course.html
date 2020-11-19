@@ -1,0 +1,46 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+List of Course
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-dark bg-dark">
+         <div class="container">
+              <ul class="nav navbar-nav">
+             <li><a href="{{ url_for('dashboard') }}">Back</a></li>
+             </ul>
+            </div>
+         </div>
+    </nav>
+{% include '_messages.html' %}
+            <table class="table table-striped">
+                <tr>
+              <th>No.</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>College</th>
+
+          </tr>
+                {% for row in coursedetails %}
+                <tr>
+                    <td>{{row['number']}}</td>
+                    <td>{{row['code']}}</td>
+                    <td>{{row['name']}}</td>
+                    <td>{{row['college_code']}}</td>
+
+                    <td width = "130">
+                        <a href="{{ url_for('editcourse') }}" class="btn btn-secondary btn-sn">edit</a>
+                        <a href="/coursedelete/{{row['code']}}" class="btn btn-danger btn-delete btn-sn">delete</a>
+                    </td>
+                </tr>
+                    {% endfor %}
+
+            </table>
+
+        </form>
+        <form class="form-signin", method="GET", action="/addcourse">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add Course</button>
+      </form>
+
+{% endblock %}

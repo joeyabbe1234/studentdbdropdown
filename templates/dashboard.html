@@ -1,0 +1,49 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+
+{% block content %}
+{% include '_messages.html' %}
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-dark bg-white">
+      <div class="container">
+          <ul class="nav navbar-nav">
+            <h1>Welcome to Student ID database </h1>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    </div>
+    <div class="container-fluid">
+      <form class="form-signin", method="GET", action="/addstudents">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add students</button>
+      </form>
+        <form class="form-signin", method="GET", action="/college">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">college</button>
+      </form>
+         <form class="form-signin", method="GET", action="/department">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">departments</button>
+      </form>
+        <form class="form-signin", method="GET", action="/course">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">course</button>
+      </form>
+        <form class="form-signin", method="GET", action="/students">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">List of students</button>
+      </form>
+        <form class="form-signin", method="GET", action="/search">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Search students</button>
+      </form>
+
+
+    </div>
+
+
+
+{% endblock %}
